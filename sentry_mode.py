@@ -5,12 +5,14 @@ import winsound
 import json
 import urllib.request
 import sys
+import os
 
 # --- CONFIGURATION ---
 # 1. Create a Discord Server -> Channel Settings -> Integrations -> Webhooks
-# 2. Copy the Webhook URL and paste it below.
-# If you leave this empty, it will just use the Sound Alarm.
-DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1454563670699806916/tMdthazyO8XO39tXIVWPL2CTP9DSlnxtj2jzDkFPG2YFek4nfrO70t-TMb81oz8F8oCP" 
+# 2. Copy the Webhook URL and set it as an environment variable, never in the code:
+#      setx DISCORD_WEBHOOK_URL "<your webhook url>"   (then reopen the terminal)
+# If it is not set, it will just use the Sound Alarm.
+DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL", "")
 
 MODE_DISARMED = "DISARMED"
 MODE_ARMED    = "ARMED"
